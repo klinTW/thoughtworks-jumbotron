@@ -11558,9 +11558,9 @@ $(document).ready(function(){
 		    var offset = $(this.hash).offset().top + 1;
 
 //          offset - 200 allows elements near bottom of page to scroll
-			
+
 	    	$('html, body').animate({ scrollTop: offset - 200 }, {duration: 400, queue: false, easing: 'easeOutCubic'});
-			
+
 		  });
 		});
 		options = options || {
@@ -15373,7 +15373,7 @@ Picker.extend( 'pickadate', DatePicker )
 
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
-var CLIENT_ID = '';
+var CLIENT_ID = '703603159694-4hr2g1jeiutrbakir62do29k0hu204ga.apps.googleusercontent.com';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
@@ -15448,15 +15448,32 @@ function listUpcomingEvents() {
     if (events.length > 0) {
       var i = 0;
       $(".card").each(function (index) {
-        var event = events[index];
-        var when = event.start.dateTime;
+        var cardSet = false;
+        while (!cardSet) {
+          var event = events[index + i];
+          var title = event.summary;
+          var description = event.description;
+          var time = event.start.dateTime;
 
-        $(this).find(".card-content .card-title").text(event.summary);
-        $(this).find(".card-content p").text(when);
+          if (time != undefined) {
+            $(this).find(".card-content .card-title").text(title);
+            $(this).find(".card-content .card-description").text(description);
+            $(this).find(".card-action .card-date").text(time);
+            cardSet = true;
+          } else {
+            i++;
+          }
+        }
       });
     }
 
   });
+}
+
+function convertDateTime (dateTime) {
+  var formattedDate = "";
+  var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 }
 
 
