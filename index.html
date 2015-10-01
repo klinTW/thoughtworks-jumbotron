@@ -1,107 +1,113 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title></title>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/live.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="scripts/script.js"></script>
+        <script src="scripts/live.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
 
-	<div id="authorize-div" style="display: none">
-    <span>Authorize access to Google Calendar API</span>
-    <!--Button for the user to click to initiate auth sequence -->
-    <button id="authorize-button" onclick="handleAuthClick(event)">
-      Authorize
-    </button>
-  </div>
+        <div id="authorize-div" style="display: none">
+            <span>Authorize access to Google Calendar API</span>
+            <!--Button for the user to click to initiate auth sequence -->
+            <button id="authorize-button" onclick="handleAuthClick(event)">
+                Authorize
+            </button>
+        </div>
 
-	<div class="valign-wrapper row" id="videoHeader">
-		<iframe width="1080" height="608" src="https://www.youtube-nocookie.com/embed/ghWgibqVxwU?showinfo=0&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
-		<div class="overlay"></div>
-		<h1 class="valign col s12 center-align">ThoughtWorks<br>San Francisco</h1>
-	</div>
+        <div class="valign-wrapper row" id="videoHeader">
+            <iframe width="1080" height="608" src="https://www.youtube-nocookie.com/embed/ghWgibqVxwU?showinfo=0&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
+            <div class="overlay"></div>
+            <h1 class="valign col s12 center-align">ThoughtWorks<br>San Francisco</h1>
+        </div>
 
-<div id="messages" class="row">
-	<h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
-	<h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
-	<h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
-</div>
+        <div id="messages" class="row">
+            <h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
+            <h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
+            <h3 class="col s10 offset-s1 center-align">Remember to book your NA Away Day flights!</h3>
+        </div>
 
-	<div id="calendar" class="row">
-		<h3 class="col s12 center-align">Upcoming Events</h3>
-    <div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-		<div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-         	<p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-		<div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-         	<p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-		<div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-         	<p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-		<div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-         	<p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-		<div class="col s4">
-      <div class="card">
-        <div class="card-content">
-          <h4 class="card-title">OpenStack Hack Night</h4>
-         	<p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
-        </div>
-          <div class="card-action">
-              <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
-          </div>
-      </div>
-		</div>
-	</div>
+        <div id="calendar">
+            <h3 class="col s12 center-align">Upcoming Events</h3>
 
-</body>
+            <div class="row">
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">OpenStack Hack Night</h4>
+                            <p class="card-description">Join the HP/OpenStack team for a night of hacking on OpenStack. We'll teach you the fundamentals behind what OpenStack is, why you should care, how you can contribute, and we'll even push some code for upstream review! As the name of this event implies, this will mostly be a hands-on workshop.</p>
+                        </div>
+                        <div class="card-action">
+                            <span class="card-date">Wednesday 9/23, 6pm-8pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
 </html>
