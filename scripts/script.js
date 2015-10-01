@@ -15453,12 +15453,13 @@ function listUpcomingEvents() {
           var event = events[index + i];
           var title = event.summary;
           var description = event.description;
-          var time = event.start.dateTime;
+          var startTime = event.start.dateTime;
+          var endTime = event.end.dateTime;
 
-          if (time != undefined) {
+          if (startTime != undefined) {
             $(this).find(".card-content .card-title").text(title);
             $(this).find(".card-content .card-description").text(description);
-            $(this).find(".card-action .card-date").text(time);
+            $(this).find(".card-action .card-date").text(convertToCardDate(new Date(startTime.toString()), new Date(endTime.toString())));
             cardSet = true;
           } else {
             i++;
@@ -15470,10 +15471,38 @@ function listUpcomingEvents() {
   });
 }
 
-function convertDateTime (dateTime) {
+function convertToCardDate (startDate, endDate) {
   var formattedDate = "";
   var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var startTime = convertToCardTime(startDate);
+  var endTime = convertToCardTime(endDate);
 
+  formattedDate += daysOfWeek[startDate.getDay()] + " " +
+    startDate.getMonth() + "/" + startDate.getDate() + "," +
+    startTime + "-" + endTime;
+
+  return formattedDate;
+}
+
+function convertToCardTime (time) {
+  var minuteString = "";
+  var noonOrMidnight = "12";
+
+  if(time.getMinutes() > 9) {
+    minuteString = ":" + time.getMinutes();
+  } else if (time.getMinutes != 0) {
+    minuteString = ":0" + time.getMinutes();
+  }
+
+  if (time.getHours() === 0) {
+    return noonOrMidnight + minuteString + "am";
+  } else if (time.getHours() === 12) {
+    return noonOrMidnight + minuteString + "pm";
+  } else if (time.getHours() > 12) {
+    return (time.getHours()%12) + minuteString + "pm";
+  } else {
+    return time.getHours() + minuteString + "am";
+  }
 }
 
 
