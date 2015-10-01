@@ -15373,7 +15373,7 @@ Picker.extend( 'pickadate', DatePicker )
 
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
-var CLIENT_ID = '703603159694-4hr2g1jeiutrbakir62do29k0hu204ga.apps.googleusercontent.com';
+var CLIENT_ID = '';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
