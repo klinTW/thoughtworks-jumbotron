@@ -15468,7 +15468,6 @@ function listUpcomingEvents() {
         }
       });
     }
-
   });
 }
 
@@ -15479,7 +15478,7 @@ function convertToCardDate (startDate, endDate) {
   var endTime = convertToCardTime(endDate);
 
   formattedDate += daysOfWeek[startDate.getDay()] + " " +
-    startDate.getMonth() + "/" + startDate.getDate() + ", " +
+    (startDate.getMonth()+1) + "/" + startDate.getDate() + ", " +
     startTime + "-" + endTime;
 
   return formattedDate;
