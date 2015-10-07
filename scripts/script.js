@@ -15473,7 +15473,13 @@ function listUpcomingEvents() {
         }
       });
     }
-    startCycle(numMessages);
+    if (numMessages > 1) {
+      startCycle(numMessages);
+    } else if (numMessages === 1) {
+      displayMessage();
+    } else {
+      $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\">Welcome!</h3>");
+    }
   });
 }
 
@@ -15528,4 +15534,8 @@ function cycleThroughMessages() {
   $("#messages .message").each(function (index) {
     $(this).delay(11000*index).fadeIn(500).delay(10000).fadeOut(500);
   });
+}
+
+function displayMessage() {
+  $("#messages .message").show();
 }
