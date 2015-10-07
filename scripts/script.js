@@ -15527,12 +15527,12 @@ function isToday(date) {
 
 function startCycle (numMessages) {
   cycleThroughMessages();
-  setInterval(cycleThroughMessages, (11500 * numMessages));
+  setInterval(cycleThroughMessages, (12000 * numMessages));
 }
 
 function cycleThroughMessages() {
   $("#messages .message").each(function (index) {
-    $(this).delay(11000*index).fadeIn(500).delay(10000).fadeOut(500);
+    $(this).delay(11500*index).fadeIn(500).delay(10000).fadeOut(500);
   });
 }
 
