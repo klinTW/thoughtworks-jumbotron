@@ -15373,7 +15373,7 @@ Picker.extend( 'pickadate', DatePicker )
 
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
-var CLIENT_ID = '';
+var CLIENT_ID = '703603159694-4hr2g1jeiutrbakir62do29k0hu204ga.apps.googleusercontent.com';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
@@ -15441,6 +15441,7 @@ function listUpcomingEvents() {
     'maxResults': 10,
     'orderBy': 'startTime'
   });
+  var numMessages = 0;
 
   request.execute(function(resp) {
     var events = resp.items;
@@ -15463,13 +15464,14 @@ function listUpcomingEvents() {
             cardSet = true;
           } else {
             $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\" hidden>" + title + "</h3>");
+            numMessages++;
             i++;
           }
         }
       });
     }
+    startCycle(numMessages);
   });
-  startCycle();
 }
 
 function convertToCardDate (startDate, endDate) {
@@ -15506,14 +15508,13 @@ function convertToCardTime (time) {
   }
 }
 
-function startCycle () {
-  var numMessages = $("#messages h3").length;
+function startCycle (numMessages) {
   cycleThroughMessages();
   setInterval(cycleThroughMessages, (11000 * numMessages));
 }
 
 function cycleThroughMessages() {
-  $("#messages h3").each(function (index) {
+  $("#messages .message").each(function (index) {
     $(this).delay(11000*index).fadeIn(500).delay(10000).fadeOut(500);
   });
 }
