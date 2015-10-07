@@ -15510,7 +15510,7 @@ function convertToCardTime (time) {
 
 function startCycle (numMessages) {
   cycleThroughMessages();
-  setInterval(cycleThroughMessages, (11000 * numMessages));
+  setInterval(cycleThroughMessages, (11500 * numMessages));
 }
 
 function cycleThroughMessages() {

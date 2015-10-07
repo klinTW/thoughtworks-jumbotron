@@ -13883,6 +13883,17 @@ span.thin
   padding: 0;
 
   color: white;
+
+  display: block;
+  height: 150px;
+  min-height: 150px;
+  max-height: 150px;
+}
+
+#messages .message {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #messages .message:before
