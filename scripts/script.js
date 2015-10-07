@@ -15462,13 +15462,14 @@ function listUpcomingEvents() {
             $(this).find(".card-action .card-date").text(convertToCardDate(new Date(startTime.toString()), new Date(endTime.toString())));
             cardSet = true;
           } else {
-            $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align hide not-shown\">" + title + "</h3>");
+            $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\">" + title + "</h3>");
             i++;
           }
         }
       });
     }
   });
+  startCycle();
 }
 
 function convertToCardDate (startDate, endDate) {
@@ -15503,4 +15504,16 @@ function convertToCardTime (time) {
   } else {
     return time.getHours() + minuteString + "am";
   }
+}
+
+function startCycle () {
+  var numMessages = $("#messages h3").length;
+  cycleThroughMessages();
+  setInterval(cycleThroughMessages, (11000 * numMessages));
+}
+
+function cycleThroughMessages() {
+  $("#messages h3").each(function (index) {
+    $(this).delay(11000*index).fadeIn(500).delay(10000).fadeOut(500);
+  });
 }
