@@ -13837,9 +13837,11 @@ body
   margin: 0;
   padding: 0;
 }
-#videoHeader iframe
+#videoHeader video
 {
   position: absolute;
+  width: 1080px;
+  height: 608px;
 }
 #videoHeader .overlay
 {
@@ -13867,6 +13869,7 @@ body
 #videoHeader img
 {
   width: 100%;
+  margin-bottom: -1em;
 }
 
 span.thin
