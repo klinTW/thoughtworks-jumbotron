@@ -15462,7 +15462,7 @@ function listUpcomingEvents() {
             $(this).find(".card-action .card-date").text(convertToCardDate(new Date(startTime.toString()), new Date(endTime.toString())));
             cardSet = true;
           } else {
-            $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\">" + title + "</h3>");
+            $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\" hidden>" + title + "</h3>");
             i++;
           }
         }
