@@ -15456,15 +15456,18 @@ function listUpcomingEvents() {
           var description = event.description;
           var startTime = event.start.dateTime;
           var endTime = event.end.dateTime;
+          var allDayDate = event.start.date;
 
           if (startTime != undefined) {
             $(this).find(".card-content .card-title").text(title);
             $(this).find(".card-content .card-description").text(description);
             $(this).find(".card-action .card-date").text(convertToCardDate(new Date(startTime.toString()), new Date(endTime.toString())));
             cardSet = true;
-          } else {
+          } else if (isToday(new Date(allDayDate.toString()))) {
             $("#messages").append("<h3 class=\"message col s10 offset-s1 center-align\" hidden>" + title + "</h3>");
             numMessages++;
+            i++;
+          } else {
             i++;
           }
         }
@@ -15506,6 +15509,14 @@ function convertToCardTime (time) {
   } else {
     return time.getHours() + minuteString + "am";
   }
+}
+
+function isToday(date) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  date.setHours(0,0,0,0);
+  date.setDate(date.getDate()+1);
+  return today.getTime() === date.getTime();
 }
 
 function startCycle (numMessages) {
