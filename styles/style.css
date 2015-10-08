@@ -13888,9 +13888,9 @@ span.thin
   color: white;
 
   display: block;
-  height: 100px;
-  min-height: 100px;
-  max-height: 100px;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
 }
 
 #messages .message {
