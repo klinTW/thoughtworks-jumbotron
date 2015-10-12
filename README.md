@@ -1,7 +1,7 @@
 This project is a simple web application and server intended to interface with a Google Calendar instance then display information about upcoming events, along with other alerts, video and (eventually) other media to welcome Thoughtworkers and visitors into the office. It is currently configured as a simple HTML/CSS frontend with some Javascript code behind it, supported by JQuery and some Google code to work with the Calendar API, provided an authorized client ID (more on this below). A simple python server is required to run the application, as well.
 
 
-## Details
+#### Details
 
 At the moment, the app is a single page with a video at the top, a scroller with alerts in the middle, and six cards with event information at the bottom. The video is currently a local mp4 file (currently the SF office b-roll), but there is a Chrome-related bug with the video however, which will be detailed further below.
 
@@ -10,7 +10,7 @@ The remaining information is pulled from a specific Google Calendar instance, ta
 At the moment, the code is meant to be run on the local machine the jumbotron is hooked up to, not actually deployed to a live web server. As such, if you do push some new code, you'll have to pull it down into the jumbotron machine and redeploy the app. This can change down the line if someplace to deploy it can be found, but keep security in mind and make sure only the right eyes can view it!
 
 
-## Setting Up
+#### Setting Up
 
 1. Install OpenSans
 2. Install Python 2.4 or above
@@ -18,7 +18,7 @@ At the moment, the code is meant to be run on the local machine the jumbotron is
 4. Open script.js and paste this client ID into the `var CLIENT_ID = ''` declaration, within the single quotes. (This is something that really should be refactored to read from an external source though...)
 
 
-## Deploying The Application
+#### Deploying The Application
 
 1. cd into the project's root directory
 2. Deploy a simple Python server:
@@ -29,7 +29,7 @@ At the moment, the code is meant to be run on the local machine the jumbotron is
 5. The page should now reload and be properly deployed!
 
 
-## Bugs & Desired Improvements
+#### Bugs & Desired Improvements
 
 1. On Google Chrome, the local video does not loop infinitely as desired. This is because Chrome is set up to take partial data from the video's source instead of loading it all at once, and unless the source is set up to accept partial requests Chrome will refuse to repeat a video, among other limitations. Currently, this is being worked around by installing a page reloader extension that fires whenever the video ends, but this is of course not ideal.
 2. There is currently no test suite integrated into the application. Consequently, there is also no build pipeline set up for it either, so implementing both would better maintain the integrity of the project.
