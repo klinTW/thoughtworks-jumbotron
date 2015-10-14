@@ -13947,3 +13947,8 @@ span.thin
 {
   color: black;
 }
+
+.card-height {
+  max-height: 400px;
+  overflow-y: scroll;
+}
